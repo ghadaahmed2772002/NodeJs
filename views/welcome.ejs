@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="/Icons/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/Style/style.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <img  class="user-img" src="/Images/user.png" alt="not found">
+    <div class="welcome">
+        <div class="t-box">
+    <table>
+        <tr>
+            <th>order</th>
+            <th>FullName</th>
+            <th>age</th>
+            <th colspan="2">Action</th>
+        </tr>
+        <% for(let i=0; i< allstudents.length; i++){ %>
+            <tr>
+                <td><%= i+1 %></td>
+                <td><%= allstudents[i].fullName %></td>
+                <td><%= allstudents[i].age %></td>
+                <td>
+                    <form action="/delete" method="POST" class="delete-form">
+                        <input type="hidden" name="_id" value="<%= allstudents[i]._id %>">
+                        <button type="submit" class="btn">delete</button>
+                    </form>
+                </td>
+                <td>
+                    <form action="/edit" method="POST" class="form-edit">
+                        <input type="hidden" name="_id" value="<%= allstudents[i]._id %>">
+                        <input type="text" placeholder="fullName" name="fullName">
+                        <input type="number" name="age" placeholder="age" >
+                        <button type="submit" class="btn">edit</button>
+                    </form>
+                </td>
+
+                
+            </tr>
+        <% } %>
+        
+    </table>
+    </div>
+    </div>
+    </div>
+
+</body>
+</html>
